@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SignalR.NetCore.Models.Message>
+
+<div class="text-center">
+    <form id="messageForm">
+        <label>Name</label>
+        <br />
+        <input type="text" id="userName" />
+        <br />
+        <label>Message</label>
+        <br />
+        <input type="text" id="content" />
+        <br />
+        <input type="submit" class="btn" value="Send" id="sendBtn" />
+    </form>
+
+    <br />
+    <br />
+
+    <div class="text-center">
+        <table class="table" id="messagesTable">
+            @foreach (var message in Model)
+            {
+                <tr>
+                    <td>
+                        @message.UserName
+                    </td>
+                    <td>
+                        @message.Content
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/signalR.js" asp-append-version="true"></script>
